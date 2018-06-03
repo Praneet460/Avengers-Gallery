@@ -8,19 +8,47 @@ class ContentPage extends StatelessWidget{
       contentPadding: EdgeInsets.zero,
 
 
+
       children: [
-          new Image.network(avenger.image,
-                          fit: BoxFit.fill,
-          ),
+           new Material(
+             borderRadius: new BorderRadius.only(
+                 bottomRight: new Radius.circular(15.0),
+                 bottomLeft: new Radius.circular(15.0)),
+             child: new Image.network(avenger.image,
+                fit: BoxFit.fill,),
+           ),
+
+
+
+
           new Padding(
               padding: const EdgeInsets.all(16.0),
               child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
 
-                  new Text(avenger.avengerName),
+                  new Row(
+                    children: <Widget>[
+                      new Text("Avenger:",
+                       style: new TextStyle(
+                         fontFamily: 'Poppins',
+                         fontWeight: FontWeight.w300,
+                         fontSize: 15.0,
+                       ),),
+                      new SizedBox(width: 5.0,),
+                      new Text(avenger.avengerName,
+                       style: new TextStyle(
+                         fontFamily: 'Comfortaa',
+                         fontSize: 15.0,
+                       ),),
+                    ],
+                  ),
                   new SizedBox(height: 16.0,),
-                  new Text(avenger.actorName),
+                  new Text(avenger.moviename,
+                  style: new TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontSize: 18.0,
+                  ),),
                   new SizedBox(height: 16.0,),
 
                   new Align(
@@ -31,10 +59,33 @@ class ContentPage extends StatelessWidget{
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: const Text('Like'),),
+                            child: new Text('Dismiss',
+                                 style: new TextStyle(
+                                   fontFamily: 'Comfortaa',
+                                   fontWeight: FontWeight.w800,
+                                 ),
+                            ),
+                            splashColor: Colors.yellowAccent,),
+                        new SizedBox(width: 10.0,),
                         new RaisedButton(
                             onPressed: () {},
-                            child: const Text('Know More'),)
+                            child: new Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Icon(Icons.video_library, color: Colors.white,),
+                                const SizedBox(width: 8.0,),
+                                new Text('Watch Videos',
+                                   style: new TextStyle(
+                                     fontFamily: 'Comfortaa',
+                                     fontWeight: FontWeight.w800,
+                                     color: Colors.white
+                                   ),),
+                              ],
+                            ),
+                            color: Colors.black,
+                            splashColor: Colors.redAccent,
+                            shape: const StadiumBorder(),
+                        )
                       ],
                     ),
                   )
