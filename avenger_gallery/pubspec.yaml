@@ -2,6 +2,9 @@ name: avenger_gallery
 description: A new Flutter application.
 
 dependencies:
+
+  cloud_firestore:
+  flutter_staggered_grid_view:
   flutter:
     sdk: flutter
 

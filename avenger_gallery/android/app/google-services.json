@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "364488703075",
+    "firebase_url": "https://avengergallery.firebaseio.com",
+    "project_id": "avengergallery",
+    "storage_bucket": "avengergallery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364488703075:android:be4936853f21e4c7",
+        "android_client_info": {
+          "package_name": "in.paperwrk.avengergallery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364488703075-bg5k7vb521ai4dco1e6370p188cqseti.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "364488703075-bg5k7vb521ai4dco1e6370p188cqseti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR_u67Sa9BbafRSXQOQscxqUcBahgiQaE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:avenger_gallery/modal/avengers_data.dart';
+
+
 class ContentPage extends StatelessWidget{
   const ContentPage({Key key}) : super(key: key);
 
+
+
+
+
+
+
   Widget dialogBuilder(BuildContext context, Avenger avenger){
+
+
     return new SimpleDialog(
       contentPadding: EdgeInsets.zero,
 
@@ -14,8 +24,12 @@ class ContentPage extends StatelessWidget{
              borderRadius: new BorderRadius.only(
                  bottomRight: new Radius.circular(15.0),
                  bottomLeft: new Radius.circular(15.0)),
-             child: new Image.network(avenger.image,
-                fit: BoxFit.fill,),
+             child: new FadeInImage(
+
+               image: new NetworkImage(avenger.image),
+               fit: BoxFit.cover,
+               placeholder: new AssetImage("assets/images/marvel.jpg"),
+             ),
            ),
 
 
@@ -41,6 +55,7 @@ class ContentPage extends StatelessWidget{
                          fontFamily: 'Comfortaa',
                          fontSize: 15.0,
                        ),),
+
                     ],
                   ),
                   new SizedBox(height: 16.0,),
@@ -49,6 +64,8 @@ class ContentPage extends StatelessWidget{
                     fontFamily: 'Montserrat',
                     fontSize: 18.0,
                   ),),
+
+
                   new SizedBox(height: 16.0,),
 
                   new Align(
@@ -72,9 +89,8 @@ class ContentPage extends StatelessWidget{
                             child: new Row(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
-                                new Icon(Icons.video_library, color: Colors.white,),
-                                const SizedBox(width: 8.0,),
-                                new Text('Watch Videos',
+
+                                new Text('Like',
                                    style: new TextStyle(
                                      fontFamily: 'Comfortaa',
                                      fontWeight: FontWeight.w800,
@@ -82,8 +98,9 @@ class ContentPage extends StatelessWidget{
                                    ),),
                               ],
                             ),
-                            color: Colors.black,
-                            splashColor: Colors.redAccent,
+                            color: Colors.blueAccent,
+                            splashColor: Colors.yellowAccent,
+
                             shape: const StadiumBorder(),
                         )
                       ],
@@ -109,7 +126,10 @@ class ContentPage extends StatelessWidget{
           alignment: Alignment.centerLeft,
 
           child: new ListTile(
-            leading: new Image(image: new AssetImage(avenger[index].icon)),
+            leading: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: new Image(image: new AssetImage(avenger[index].icon,),),
+            ),
             title: new Text(avenger[index].avengerName,
                          style: const TextStyle(
                            color: Colors.black,
@@ -139,15 +159,19 @@ class ContentPage extends StatelessWidget{
     // TODO: implement build
     return new Expanded(
       child: new Container(
-        
+        color: Colors.transparent,
+
+
+
         child: new ListView.builder(
             itemCount: avenger.length,
             itemExtent: 70.0,
             itemBuilder: listItemBuilder,
 
 
+
       ),
-    )
+      ),
     );
 
     
