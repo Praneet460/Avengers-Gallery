@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:avenger_gallery/modal/avengers_data.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 
 class ContentPage extends StatelessWidget{
@@ -24,7 +25,7 @@ class ContentPage extends StatelessWidget{
              borderRadius: new BorderRadius.only(
                  bottomRight: new Radius.circular(15.0),
                  bottomLeft: new Radius.circular(15.0)),
-             child: new FadeInImage(
+             child:  FadeInImage(
 
                image: new NetworkImage(avenger.image),
                fit: BoxFit.cover,
@@ -138,7 +139,7 @@ class ContentPage extends StatelessWidget{
                            fontSize: 25.0
 
                          ),),
-            subtitle: new Text(avenger[index].actorName,
+            subtitle: new Text(avenger[index].actorName ?? "unknown ...",
                           style: const TextStyle(
                             color: Colors.teal,
                             fontFamily: 'Montserrat',
@@ -163,14 +164,19 @@ class ContentPage extends StatelessWidget{
 
 
 
-        child: new ListView.builder(
-            itemCount: avenger.length,
-            itemExtent: 70.0,
-            itemBuilder: listItemBuilder,
+        child: RefreshIndicator( // used to indicate refresh indicator
+          onRefresh: () async{
+            await new Future.delayed(const Duration(seconds: 1));
+          },
+          child: new ListView.builder(
+              itemCount: avenger.length,
+              itemExtent: 70.0,
+              itemBuilder: listItemBuilder,
 
 
 
       ),
+        ),
       ),
     );
 

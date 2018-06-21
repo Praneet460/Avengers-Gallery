@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:avenger_gallery/Pages/firstPage.dart' as first;
 import 'package:avenger_gallery/Pages/secondPage.dart' as second;
-import 'package:avenger_gallery/Pages/thirdPage.dart' as third;
-import 'package:avenger_gallery/Pages/fourthPage.dart' as fourth;
+//import 'package:avenger_gallery/Pages/thirdPage.dart' as third;
+//import 'package:avenger_gallery/Pages/fourthPage.dart' as fourth;
 class BottomNavBar extends StatefulWidget {
   @override
   _BottomNavBarState createState() => new _BottomNavBarState();
@@ -16,7 +16,7 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
   void initState() {
     super.initState();
     controller = new TabController(
-        length: 4,
+        length: 2,
         vsync: this);
   }
 
@@ -44,13 +44,13 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
                color: Colors.white,
                ),
               ),
-              new Tab(icon: new Icon(Icons.video_library,
-                color: Colors.white,),
-
-              ),
-              new Tab(icon: new Icon(Icons.store,
-                     color: Colors.white,),
-              ),
+//              new Tab(icon: new Icon(Icons.video_library,
+//                color: Colors.white,),
+//
+//              ),
+//              new Tab(icon: new Icon(Icons.store,
+//                     color: Colors.white,),
+//              ),
             ]
         ),
       ),
@@ -59,8 +59,8 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
             children: <Widget>[
               new first.First(),
               new second.Second(),
-              new third.Third(),
-              new fourth.Fourth(),
+//              new third.Third(),
+//              new fourth.Fourth(),
             ]
         )
     );

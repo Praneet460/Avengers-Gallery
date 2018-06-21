@@ -4,6 +4,7 @@ import 'package:avenger_gallery/Home/contentpage.dart';
 import 'package:avenger_gallery/Home/View/fadeContainer.dart';
 
 class First extends StatefulWidget {
+  First({Key key, this.title}) : super(key:key);
 
   final String title;
   @override

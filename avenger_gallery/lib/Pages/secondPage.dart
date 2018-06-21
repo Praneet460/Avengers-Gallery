@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:avenger_gallery/Home/appbar/gradientAppBar.dart';
+import 'package:avenger_gallery/Home/View/secondPage/gallery.dart';
 
 class Second extends StatelessWidget{
 
@@ -11,7 +12,7 @@ class Second extends StatelessWidget{
         children: <Widget>[
 
           new GradientAppBar("Avengers Gallery"),
-//          new GalleryPage(),
+          new Gallery(),
         ],
       ),
     );
