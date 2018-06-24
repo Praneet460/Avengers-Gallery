@@ -1,7 +1,10 @@
+import 'dart:convert';
+import 'dart:async';
 import 'package:avenger_gallery/Home/View/secondPage/full_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:avenger_gallery/modal/gallery.dart';
+
+import 'package:http/http.dart' as http;
 class Gallery extends StatefulWidget {
   Gallery({Key key}): super(key:key);
   @override
@@ -12,6 +15,30 @@ class Gallery extends StatefulWidget {
 
 
 class _GalleryState extends State<Gallery> {
+
+  List data;
+  Future<String> getData() async{
+    var response = await http.get(
+        Uri.encodeFull("https://my-json-server.typicode.com/Praneet460/JSON_SERVER/img"),
+        headers:{
+          "Accept": "application/json"
+
+        }
+    );
+    this.setState((){
+      data = JSON.decode(response.body);
+
+    });
+
+    return "Successful!";
+    }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    this.getData();
+  }
 
 
 
@@ -25,9 +52,9 @@ class _GalleryState extends State<Gallery> {
           child: StaggeredGridView.countBuilder(
               padding: const EdgeInsets.all(10.0),
               crossAxisCount: 4,
-              itemCount: gallery.length,
-              itemBuilder: (context, int index){
-                String imgPath = gallery[index].image;
+              itemCount: data== null ? 0 : data.length,
+              itemBuilder: (BuildContext context, int index){
+                String imgPath = data[index]["imgURL"];
                 return new Material(
                   elevation: 4.0,
                   borderRadius: new BorderRadius.all(Radius.circular(10.0)),
@@ -38,7 +65,7 @@ class _GalleryState extends State<Gallery> {
                         tag: imgPath, 
                         child: FadeInImage(
                             placeholder: new AssetImage("assets/images/avenger.png"),
-                            image: NetworkImage(gallery[index].image),
+                            image: NetworkImage(data[index]["imgURL"]),
                         fit: BoxFit.cover,)),
                   ),
                 );

@@ -3,10 +3,12 @@ description: A new Flutter application.
 
 dependencies:
 
-  cloud_firestore:
+
   flutter_staggered_grid_view:
   share:
   cached_network_image: any
+  http:
+  photo_view:
   flutter:
     sdk: flutter
 

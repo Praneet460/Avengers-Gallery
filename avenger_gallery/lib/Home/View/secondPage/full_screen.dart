@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
+import 'package:photo_view/photo_view.dart';
 
 class FullScreen extends StatelessWidget {
   final String imgPath;
@@ -25,7 +26,8 @@ class FullScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: new Hero(
                   tag: imgPath,
-                  child: Image.network(imgPath),),
+                  child: PhotoView(
+                      imageProvider: NetworkImage(imgPath)),),
               ),
               Align(
                 alignment: Alignment.topCenter,
@@ -38,7 +40,7 @@ class FullScreen extends StatelessWidget {
                       backgroundColor: Colors.transparent,
                       leading: new IconButton(
                           icon: Icon(Icons.close,
-                            color: Colors.black,
+                            color: Colors.redAccent,
                           ),
                           splashColor: Colors.yellowAccent,
                           onPressed: () => Navigator.of(context).pop()),
