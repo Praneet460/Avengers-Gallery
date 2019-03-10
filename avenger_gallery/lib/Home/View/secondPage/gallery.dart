@@ -32,7 +32,7 @@ class _GalleryState extends State<Gallery> {
 
 
       if (response.statusCode == 200) {
-        data = JSON.decode(response.body);
+        data = json.decode(response.body);
         setState(() {
           _isLoading = false;
         });

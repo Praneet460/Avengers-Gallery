@@ -3,7 +3,9 @@ class AvengerGallery {
   final String id;
   final String image;
 
-  const AvengerGallery({this.id, this.image});
+  const AvengerGallery({
+    this.id,
+    this.image});
 }
 
 List<AvengerGallery> gallery = [
@@ -64,5 +66,9 @@ List<AvengerGallery> gallery = [
   const AvengerGallery(
     id: "12",
     image: "https://m.media-amazon.com/images/M/MV5BZTRiZGY1MzYtOWMwOS00MzY2LTllNGQtNjg3ODkwN2M5ZmRiXkEyXkFqcGdeQXVyNzQ0MjY5Njc@._V1_QL50_SX1777_CR0,0,1777,999_AL_.jpg",
+  ),
+  const AvengerGallery(
+      id: "13",
+      image: "https://m.media-amazon.com/images/M/MV5BOWVlYjQwOGMtYzU3ZC00MDdkLWE5OGEtNWY4MTgwNDEyZTY1XkEyXkFqcGdeQXVyNjg2NjQwMDQ@._V1_QL50_SY1000_SX1500_AL_.jpg"
   ),
 ];
